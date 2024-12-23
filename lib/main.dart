@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -54,7 +55,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  String _title = "0 treats";
+  int _hampCount = 0;
+  String _title = "0 Points, 0 hampters";
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -67,8 +69,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _incrementHampter() {
+    setState(() {
+      _hampCount++;
+      findTitle();
+    });
+  }
+
   void findTitle() {
-    _title = "$_counter treats";
+    _title = "$_counter points, $_hampCount hampters";
   }
 
   @override
@@ -109,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Hampster Treat Gotten:',
+              'Hampster Points Gotten:',
             ),
             Text(
               '$_counter',
@@ -123,10 +132,19 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SizedBox(
             width: 155.0,
             height: 50.0,
-            child: FloatingActionButton(
-              onPressed: _incrementCounter,
-              tooltip: 'Increment',
-              child: const Icon(Icons.favorite),
+            child: Row(
+              children: [
+                FloatingActionButton(
+                  onPressed: _incrementCounter,
+                  tooltip: 'Increment',
+                  child: const Icon(Icons.favorite),
+                ),
+                FloatingActionButton(
+                  onPressed: _incrementHampter,
+                  tooltip: 'HampsterIncrement',
+                  child: const Icon(Icons.pets),
+                ),
+              ],
             ),
           ),
         ),
