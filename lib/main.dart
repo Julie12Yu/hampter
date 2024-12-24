@@ -56,7 +56,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _hampCount = 0;
-  String _title = "0 Points, 0 hampters";
+  String _title = "0 points, 0 hampters";
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -129,23 +129,27 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: Container(
         child: FittedBox(
-          child: SizedBox(
-            width: 155.0,
-            height: 50.0,
-            child: Row(
-              children: [
-                FloatingActionButton(
+          child: Row(
+            children: [
+              SizedBox(
+                width: 155.0,
+                height: 50.0,
+                child: FloatingActionButton(
                   onPressed: _incrementCounter,
                   tooltip: 'Increment',
                   child: const Icon(Icons.favorite),
                 ),
-                FloatingActionButton(
+              ),
+              SizedBox(
+                width: 155.0,
+                height: 50.0,
+                child: FloatingActionButton(
                   onPressed: _incrementHampter,
                   tooltip: 'HampsterIncrement',
                   child: const Icon(Icons.pets),
                 ),
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),
