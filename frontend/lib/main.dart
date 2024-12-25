@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -53,19 +54,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _pointCounter = 0;
   int _hampCount = 0;
   String _title = "0 points, 0 hampters";
+  Timer? _timer;
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _pointCounter++;
       findTitle();
     });
+  }
+
+  void _clearAll() {
+    setState(() {
+      _pointCounter = 0;
+      _hampCount = 0;
+      findTitle();
+    });
+  }
+
+  void startCounter() {
+    if (_hampCount > 0 && _pointCounter > 0) {
+      _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+        // Add points based on the number of hampsters
+        setState(() {
+          _pointCounter += _hampCount;
+          findTitle();
+        });
+      });
+    }
   }
 
   void _incrementHampter() {
@@ -73,10 +90,11 @@ class _MyHomePageState extends State<MyHomePage> {
       _hampCount++;
       findTitle();
     });
+    startCounter();
   }
 
   void findTitle() {
-    _title = "$_counter points, $_hampCount hampters";
+    _title = "$_pointCounter points, $_hampCount hampters";
   }
 
   @override
@@ -98,8 +116,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(_title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -117,10 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Hampster Points Gotten:',
+              'Hampter Points Gotten:',
             ),
             Text(
-              '$_counter',
+              '$_pointCounter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
@@ -146,6 +162,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: _incrementHampter,
                   tooltip: 'HampsterIncrement',
                   child: const Icon(Icons.pets),
+                ),
+              ),
+              SizedBox(
+                width: 155.0,
+                height: 50.0,
+                child: FloatingActionButton(
+                  onPressed: _clearAll,
+                  tooltip: 'CLEAR ALL',
+                  child: const Icon(Icons.stop_circle),
                 ),
               )
             ],
