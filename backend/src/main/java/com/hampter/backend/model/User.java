@@ -22,4 +22,7 @@ public class User {
 
     @Column(name = "isOnline")
     private boolean isOnline;
+
+    @Column(name = "userEmail")
+    private boolean userEmail;
 }
