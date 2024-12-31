@@ -1,0 +1,5 @@
+type Hampster {
+  userID: ID!
+  name: String
+  age: Int
+}

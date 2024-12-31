@@ -11,6 +11,12 @@ public class User {
     @Column(name = "userID")
     private Integer userID;
 
+    @Column(name = "userEmail")
+    private String userEmail;
+
+    @Column(name = "userName")
+    private String userName;
+
     @Column(name = "allHabs") // hab IDs will be stored
     private ArrayList<Integer> habs;
 
@@ -22,7 +28,4 @@ public class User {
 
     @Column(name = "isOnline")
     private boolean isOnline;
-
-    @Column(name = "userEmail")
-    private boolean userEmail;
 }
