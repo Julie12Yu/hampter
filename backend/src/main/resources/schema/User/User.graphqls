@@ -1,4 +1,9 @@
 type User {
   userID: ID!
   userEmail: String
+  userName: String
+  habs: [Int]
+  pointCount: Int
+  allHampters: [Int]
+  isOnline: Boolean!
 }

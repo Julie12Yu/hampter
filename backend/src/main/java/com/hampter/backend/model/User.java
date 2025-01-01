@@ -1,6 +1,6 @@
 package com.hampter.backend.model;
 
-import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,7 +9,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userID")
-    private Integer userID;
+    private Integer userID; // when graphql, need convert to string(??)
 
     @Column(name = "userEmail")
     private String userEmail;
@@ -17,15 +17,15 @@ public class User {
     @Column(name = "userName")
     private String userName;
 
-    @Column(name = "allHabs") // hab IDs will be stored
-    private ArrayList<Integer> habs;
+    @Column(name = "allHabs", columnDefinition = "integer[]") // hab IDs will be stored
+    private List<Integer> habs;
 
     @Column(name = "pointCount")
     private Integer pointCount;
 
-    @Column(name = "hampterCount") // hampter IDs will be stored
-    private ArrayList<Integer> hampterCount;
+    @Column(name = "allHampters", columnDefinition = "integer[]") // hampter IDs will be stored
+    private List<Integer> allHampters;
 
-    @Column(name = "isOnline")
-    private boolean isOnline;
+    @Column(name = "isOnline") // in GraphQL, it's non-nullable
+    private Boolean isOnline;
 }
