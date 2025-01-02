@@ -1,6 +1,6 @@
 package com.hampter.backend.model;
 
-import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,9 +11,9 @@ public class Hab {
     @Column(name = "habID")
     private Integer habID;
 
-    @Column(name = "habHampters") // hampter IDs will be stored
-    private ArrayList<Integer> habHampters;
+    @Column(name = "habHampters", columnDefinition = "integer[]") // hampter IDs will be stored
+    private List<Integer> habHampters;
 
-    @Column(name = "habTrinkets") // string represents the hab
-    private ArrayList<String> habTrinkets;
+    @Column(name = "habTrinkets", columnDefinition = "string[]") // string represents the hab
+    private List<String> habTrinkets;
 }
