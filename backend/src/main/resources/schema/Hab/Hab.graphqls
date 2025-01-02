@@ -1,3 +1,5 @@
 type Hab {
-    
+  habID: ID!
+  habHampters: [Int]
+  habTrinkets: [Int]
 }

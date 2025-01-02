@@ -14,6 +14,6 @@ public class Hab {
     @Column(name = "habHampters", columnDefinition = "integer[]") // hampter IDs will be stored
     private List<Integer> habHampters;
 
-    @Column(name = "habTrinkets", columnDefinition = "string[]") // string represents the hab
-    private List<String> habTrinkets;
+    @Column(name = "habTrinkets", columnDefinition = "integer[]") // trinkets will be repped by id number
+    private List<Integer> habTrinkets;
 }
