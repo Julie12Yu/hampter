@@ -1,0 +1,8 @@
+type HampterMessage {
+  hampterMessageID: ID!
+  fromUserID: Int
+  toUserID: Int
+  messageTitle: String
+  messageText: String
+  """custom datetime scalar to be added for sent and read time"""
+}
