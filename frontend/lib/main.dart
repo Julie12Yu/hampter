@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'testing_display.dart';
 
 void main() {
   runApp(const MyApp());
@@ -142,42 +143,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: Container(
-        child: FittedBox(
-          child: Row(
-            children: [
-              SizedBox(
-                width: 155.0,
-                height: 50.0,
-                child: FloatingActionButton(
-                  onPressed: _incrementCounter,
-                  tooltip: 'Increment',
-                  child: const Icon(Icons.favorite),
-                ),
-              ),
-              const SizedBox(width: 10),
-              SizedBox(
-                width: 155.0,
-                height: 50.0,
-                child: FloatingActionButton(
-                  onPressed: _incrementHampter,
-                  tooltip: 'Hampster Increment',
-                  child: const Icon(Icons.pets),
-                ),
-              ),
-              const SizedBox(width: 10),
-              SizedBox(
-                width: 155.0,
-                height: 50.0,
-                child: FloatingActionButton(
-                  onPressed: _clearAll,
-                  tooltip: 'Clear all',
-                  child: const Icon(Icons.stop_circle),
-                ),
-              )
-            ],
-          ),
-        ),
+      floatingActionButton: TestingDisplay(
+        onIncrement: _incrementCounter,
+        onIncrementHampter: _incrementHampter,
+        onClearAll: _clearAll,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
