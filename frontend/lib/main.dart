@@ -161,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 50.0,
                 child: FloatingActionButton(
                   onPressed: _incrementHampter,
-                  tooltip: 'HampsterIncrement',
+                  tooltip: 'Hampster Increment',
                   child: const Icon(Icons.pets),
                 ),
               ),
@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 50.0,
                 child: FloatingActionButton(
                   onPressed: _clearAll,
-                  tooltip: 'CLEAR ALL',
+                  tooltip: 'Clear all',
                   child: const Icon(Icons.stop_circle),
                 ),
               )
