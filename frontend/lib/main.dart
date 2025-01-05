@@ -75,6 +75,37 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+class DarkModeSwitch extends StatefulWidget {
+  const DarkModeSwitch({super.key});
+
+  @override
+  State<DarkModeSwitch> createState() => _DarkModeSwitchState();
+}
+
+class _DarkModeSwitchState extends State<DarkModeSwitch> {
+  bool light = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+      // This bool value toggles the switch.
+      value: light,
+      activeColor: Colors.deepPurpleAccent,
+      onChanged: (bool value) {
+        // This is called when the user toggles the switch.
+        setState(() {
+          if (value) {
+            MyApp.of(context).changeMode(ThemeMode.dark);
+          } else {
+            MyApp.of(context).changeMode(ThemeMode.light);
+          }
+          light = value;
+        });
+      },
+    );
+  }
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _pointCounter = 0;
   int _hampCount = 0;
@@ -154,6 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            DarkModeSwitch(),
             const Text(
               'Hampter Points Gotten:',
             ),
