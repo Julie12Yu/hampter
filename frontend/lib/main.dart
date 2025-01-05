@@ -13,9 +13,15 @@ class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
   _MyAppState createState() => _MyAppState();
+
+  static _MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<
+          _MyAppState>()!; // of() allows for child widgets to access
 }
 
 class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.system; // prefer system provided mode
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,9 +46,15 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(), // allows dark mode - remove for light mode
-      themeMode: ThemeMode.system, // prefer system provided mode
+      themeMode: _themeMode,
       home: const MyHomePage(),
     );
+  }
+
+  void changeMode(ThemeMode themeMode) {
+    setState(() {
+      _themeMode = themeMode; // sets new theme mode
+    });
   }
 }
 
