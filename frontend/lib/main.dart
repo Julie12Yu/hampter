@@ -92,14 +92,15 @@ class _DarkModeSwitchState extends State<DarkModeSwitch> {
       value: light,
       activeColor: Colors.deepPurpleAccent,
       onChanged: (bool value) {
-        // This is called when the user toggles the switch.
         setState(() {
+          // called when the user toggles the switch.
           if (value) {
+            // if switch is on, we're on dark mode
             MyApp.of(context).changeMode(ThemeMode.dark);
           } else {
             MyApp.of(context).changeMode(ThemeMode.light);
           }
-          light = value;
+          light = value; // ensure state is up to date
         });
       },
     );
