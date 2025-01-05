@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  // call from 'context' with: MyApp.of(context).changeTheme(ThemeMode.dark);
+  // call from 'context' with: MyApp.of(context).changeMode(ThemeMode.dark);
   void changeMode(ThemeMode themeMode) {
     setState(() {
       _themeMode = themeMode; // sets new theme mode
