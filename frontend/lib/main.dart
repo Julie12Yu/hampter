@@ -42,4 +42,9 @@ class _MyAppState extends State<MyApp> {
       _appThemeMode = themeMode; // sets new theme mode
     });
   }
+
+  bool getMode() {
+    // our switch is "true" if the 'dark mode' switch is on.
+    return _appThemeMode == ThemeMode.dark;
+  }
 }

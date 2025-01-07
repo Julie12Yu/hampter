@@ -9,7 +9,13 @@ class DarkModeSwitch extends StatefulWidget {
 }
 
 class _DarkModeSwitchState extends State<DarkModeSwitch> {
-  bool light = true;
+  late bool light;
+
+  @override
+  void initState() {
+    super.initState();
+    light = MyApp.of(context).getMode();
+  }
 
   @override
   Widget build(BuildContext context) {
