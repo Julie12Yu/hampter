@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:model_viewer_plus/model_viewer_plus.dart';
 import 'dart:async';
 
 import 'package:hampter/testing_display.dart';
@@ -24,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   int _hampCount = 0;
   String _title = "0 points, 0 hampters";
   Timer? _timer;
+
   void _incrementCounter() {
     setState(() {
       _pointCounter++;
@@ -110,6 +112,20 @@ class _HomePageState extends State<HomePage> {
             Text(
               '$_pointCounter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            SizedBox(
+              height: 300, // Specify a fixed height
+              width: 300, // Optional: Match the parent's width
+              child: ModelViewer(
+                src:
+                    'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
+                alt: 'A 3D model of an astronaut',
+                ar: true,
+                autoRotate: true,
+                cameraControls: true, // Add camera controls
+                disableZoom: false, // Enable zoom
+                loading: Loading.eager, // Set eager loading
+              ),
             ),
           ],
         ),

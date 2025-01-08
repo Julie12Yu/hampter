@@ -22,8 +22,9 @@ class TestingDisplay extends StatelessWidget {
               width: 155.0,
               height: 50.0,
               child: FloatingActionButton(
+                heroTag: "Increment",
                 onPressed: onIncrement,
-                tooltip: 'Increment',
+                tooltip: 'PointIncrease',
                 child: const Icon(Icons.favorite),
               ),
             ),
@@ -32,6 +33,7 @@ class TestingDisplay extends StatelessWidget {
               width: 155.0,
               height: 50.0,
               child: FloatingActionButton(
+                heroTag: "HampterIncrease",
                 onPressed: onIncrementHampter,
                 tooltip: 'Hampster Increment',
                 child: const Icon(Icons.pets),
@@ -42,6 +44,7 @@ class TestingDisplay extends StatelessWidget {
               width: 155.0,
               height: 50.0,
               child: FloatingActionButton(
+                heroTag: "Clear",
                 onPressed: onClearAll,
                 tooltip: 'Clear all',
                 child: const Icon(Icons.stop_circle),
