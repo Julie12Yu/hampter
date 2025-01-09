@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
               width: 300, // Optional: Match the parent's width
               child: const ModelViewer(
                 src: 'assets/moo_deng.glb',
-                iosSrc: 'frontend/assets/moo_deng.usdz',
+                iosSrc: 'assets/moo_deng.usdz',
                 alt: 'moo deng :D',
                 ar: false, // Disable AR
                 autoRotate: true,
