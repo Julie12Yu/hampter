@@ -116,15 +116,15 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 300, // Specify a fixed height
               width: 300, // Optional: Match the parent's width
-              child: ModelViewer(
-                src:
-                    'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
-                alt: 'A 3D model of an astronaut',
-                ar: true,
+              child: const ModelViewer(
+                src: 'assets/moo_deng.glb',
+                iosSrc: 'frontend/assets/moo_deng.usdz',
+                alt: 'moo deng :D',
+                ar: false, // Disable AR
                 autoRotate: true,
-                cameraControls: true, // Add camera controls
-                disableZoom: false, // Enable zoom
-                loading: Loading.eager, // Set eager loading
+                cameraControls: true,
+                disableZoom: true,
+                loading: Loading.lazy,
               ),
             ),
           ],
