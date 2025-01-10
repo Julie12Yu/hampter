@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dark_mode_switch.dart';
+import 'package:hampter/hamburger_menu.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: HamburgerMenu(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("MAKE TITLE WORK LATER YEA"),
