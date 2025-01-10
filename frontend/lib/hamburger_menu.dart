@@ -23,7 +23,9 @@ class HamburgerMenu extends StatelessWidget {
           ListTile(
             title: const Text('Settings'),
             onTap: () {
-              Navigator.pushNamed(context, '/second');
+              if (ModalRoute.of(context)?.settings.name != '/second') {
+                Navigator.pushReplacementNamed(context, '/second');
+              }
 
               /// nEEEDS TO BE CHANGED - DON'T WANT TO STACK PUSHES :(
             },
