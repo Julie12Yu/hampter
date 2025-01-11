@@ -16,20 +16,21 @@ class HamburgerMenu extends StatelessWidget {
           ListTile(
             title: const Text('Home Page'),
             onTap: () {
-              Navigator.popUntil(
-                  context,
-                  (route) => route
-                      .isFirst); // needs to somehow work cuz rn it aint workin
+              Navigator.pop(context); // closes the drawer
+              // if not already in home page
+              if (ModalRoute.of(context)?.settings.name != '/') {
+                Navigator.pushReplacementNamed(context, '/');
+              }
             },
           ),
           ListTile(
             title: const Text('Settings'),
             onTap: () {
+              Navigator.pop(context); // closes the drawer
+              // if not already in settings page
               if (ModalRoute.of(context)?.settings.name != '/second') {
-                Navigator.pushNamed(context, '/second');
+                Navigator.pushReplacementNamed(context, '/second');
               }
-
-              /// nEEEDS TO BE CHANGED - DON'T WANT TO STACK PUSHES :(
             },
           ),
         ],
