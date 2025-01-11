@@ -16,8 +16,10 @@ class HamburgerMenu extends StatelessWidget {
           ListTile(
             title: const Text('Home Page'),
             onTap: () {
-              Navigator.pop(
-                  context); // needs to somehow work cuz rn it aint workin
+              Navigator.popUntil(
+                  context,
+                  (route) => route
+                      .isFirst); // needs to somehow work cuz rn it aint workin
             },
           ),
           ListTile(
