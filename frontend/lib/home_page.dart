@@ -6,7 +6,7 @@ import 'package:hampter/testing_display.dart';
 import 'package:hampter/hamburger_menu.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
