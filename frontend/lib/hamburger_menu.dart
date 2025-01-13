@@ -28,8 +28,8 @@ class HamburgerMenu extends StatelessWidget {
             onTap: () {
               Navigator.pop(context); // closes the drawer
               // if not already in settings page
-              if (ModalRoute.of(context)?.settings.name != '/second') {
-                Navigator.pushReplacementNamed(context, '/second');
+              if (ModalRoute.of(context)?.settings.name != '/settings') {
+                Navigator.pushReplacementNamed(context, '/settings');
               }
             },
           ),

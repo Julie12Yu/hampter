@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        '/second': (context) => const SettingsPage(),
+        '/settings': (context) => const SettingsPage(),
       },
     );
   }
