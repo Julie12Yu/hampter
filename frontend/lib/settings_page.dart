@@ -23,7 +23,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
       drawer: HamburgerMenu(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("MAKE TITLE WORK LATER YEA"),
+        title: Text("Settings Page"),
       ),
       body: Center(
         child: Column(
