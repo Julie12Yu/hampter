@@ -3,7 +3,7 @@ import 'dark_mode_switch.dart';
 import 'package:hampter/hamburger_menu.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
   // pLEASE REFACTOR THESE NAMES DEAR GOD
   Widget build(BuildContext build) {
     return MySettingsPage(); // yep refacor
