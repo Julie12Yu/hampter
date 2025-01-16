@@ -5,7 +5,7 @@ import 'package:hampter/hamburger_menu.dart';
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
   // pLEASE REFACTOR THESE NAMES DEAR GOD
-  Widget build(BuildContext build) {
+  Widget build(BuildContext context) {
     return MySettingsPage(); // yep refacor
   }
 }
