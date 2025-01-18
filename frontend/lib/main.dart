@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<
-          _MyAppState>()!; // of() allows for child widgets to access
+          _MyAppState>()!;  // of() allows for child widgets to access
 }
 
 class _MyAppState extends State<MyApp> {
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
   // call from 'context' with: MyApp.of(context).changeMode(ThemeMode.dark);
   void changeMode(ThemeMode themeMode) {
     setState(() {
-      _appThemeMode = themeMode; // sets new theme mode
+      _appThemeMode = themeMode;  // sets new theme mode
     });
   }
 
