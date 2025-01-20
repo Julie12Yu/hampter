@@ -32,7 +32,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             ElevatedButton(
               child: const Text('Bap Me!'),
               onPressed: () {
-                Navigator.pop(context); // pages are like 'stacks'
+                Navigator.pop(context);  // pages are like 'stacks'
               },
             ),
             DarkModeSwitch(),
