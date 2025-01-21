@@ -11,12 +11,12 @@ class HamburgerMenu extends StatelessWidget {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(),
-            child: Text('Drawer Header'),
+            child: Text('Menu'),
           ),
           ListTile(
             title: const Text('Home Page'),
             onTap: () {
-              Navigator.pop(context);  // closes the drawer
+              Navigator.pop(context); // closes the drawer
               // if not already in home page
               if (ModalRoute.of(context)?.settings.name != '/') {
                 Navigator.pushReplacementNamed(context, '/');
@@ -26,7 +26,7 @@ class HamburgerMenu extends StatelessWidget {
           ListTile(
             title: const Text('Settings'),
             onTap: () {
-              Navigator.pop(context);  // closes the drawer
+              Navigator.pop(context); // closes the drawer
               // if not already in settings page
               if (ModalRoute.of(context)?.settings.name != '/settings') {
                 Navigator.pushReplacementNamed(context, '/settings');
