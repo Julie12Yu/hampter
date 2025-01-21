@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dark_mode_switch.dart';
 import 'package:hampter/hamburger_menu.dart';
+import 'package:settings_ui/settings_ui.dart';
+import 'main.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MySettingsPage(); // yep refacor
-  }
-}
 
-class MySettingsPage extends StatefulWidget {
-  const MySettingsPage({super.key});
-  @override
-  State<MySettingsPage> createState() => _MySettingsPageState();
-}
-
-class _MySettingsPageState extends State<MySettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,16 +16,18 @@ class _MySettingsPageState extends State<MySettingsPage> {
         title: Text("Settings Page"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              child: const Text('Bap Me!'),
-              onPressed: () {
-                Navigator.pop(context);  // pages are like 'stacks'
-              },
+        child: SettingsList(
+          sections: [
+            SettingsSection(
+              title: Text('Common'),
+              tiles: <SettingsTile>[
+                SettingsTile(
+                  trailing: DarkModeSwitch(),
+                  leading: Icon(Icons.dark_mode),
+                  title: Text('Dark Mode'),
+                ),
+              ],
             ),
-            DarkModeSwitch(),
           ],
         ),
       ),
