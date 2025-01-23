@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:model_viewer_plus/model_viewer_plus.dart';
 import 'dart:async';
 
 import 'package:hampter/testing_display.dart';
 import 'package:hampter/hamburger_menu.dart';
+import 'package:hampter/view_hampter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -115,20 +115,7 @@ class _HomePageState extends State<HomePage> {
               '$_pointCounter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            SizedBox(
-              height: 300, // Specify a fixed height
-              width: 300, // Optional: Match the parent's width
-              child: const ModelViewer(
-                src: 'assets/moo_deng.glb',
-                iosSrc: 'assets/moo_deng.usdz',
-                alt: 'moo deng :D',
-                ar: false, // Disable AR
-                autoRotate: true,
-                cameraControls: true,
-                disableZoom: true,
-                loading: Loading.lazy,
-              ),
-            ),
+            const ViewHampter(),
           ],
         ),
       ),
