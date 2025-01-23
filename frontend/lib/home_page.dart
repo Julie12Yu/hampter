@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
               child: const Text('Tap Me!'),
               onPressed: () {
-                Navigator.pushNamed(context, '/second');
+                Navigator.pushNamed(context, '/settings');
               },
             ),
             const Text(

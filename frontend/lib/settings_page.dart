@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dark_mode_switch.dart';
 import 'package:hampter/hamburger_menu.dart';
 import 'package:settings_ui/settings_ui.dart';
-import 'main.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
