@@ -33,6 +33,16 @@ class HamburgerMenu extends StatelessWidget {
               }
             },
           ),
+          ListTile(
+            title: const Text('Shop'),
+            onTap: () {
+              Navigator.pop(context); // closes the drawer
+              // if not already in settings page
+              if (ModalRoute.of(context)?.settings.name != '/shop') {
+                Navigator.pushReplacementNamed(context, '/shop');
+              }
+            },
+          ),
         ],
       ),
     );
