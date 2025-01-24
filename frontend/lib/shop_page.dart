@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'hamburger_menu.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -10,6 +11,12 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text("hIIIIII"));
+    return Scaffold(
+        drawer: HamburgerMenu(),
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text("Settings Page"),
+        ),
+        body: Text("hIIIIII"));
   }
 }
