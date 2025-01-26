@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dark_mode_switch.dart';
 import 'package:hampter/hamburger_menu.dart';
-import 'package:settings_ui/settings_ui.dart';
+import 'package:settings_ui/settings_ui.dart'; // Reason for no web compatability is because of settings_ui
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
