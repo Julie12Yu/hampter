@@ -17,6 +17,6 @@ class _ShopPageState extends State<ShopPage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text("Shop"),
         ),
-        body: Text("hIIIIII"));
+        body: Center(child: Text("this is a shop!")));
   }
 }
