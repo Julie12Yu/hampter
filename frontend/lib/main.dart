@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hampter/home_page.dart';
-import 'settings_page.dart';
+import 'settings/settings_page.dart';
 import 'package:hampter/shop_page.dart';
 
 void main() {
