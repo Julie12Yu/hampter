@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => const HomePage(),
         '/settings': (context) => const SettingsPage(),
-        '/shop': (context) => const ShopPage(),
+        '/shop': (context) => const TrinketShopPage(),
       },
     );
   }
