@@ -17,6 +17,6 @@ class _TrinketShopPageState extends State<TrinketShopPage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text("Trinket Shop"),
         ),
-        body: Center(child: Text("this is a shop!")));
+        body: Center(child: Text("this is a trinket shop!")));
   }
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hampter/home_page.dart';
+import 'package:hampter/treat_shop_page.dart';
 import 'settings/settings_page.dart';
-import 'package:hampter/shop_page.dart';
+import 'package:hampter/trinket_shop_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => const HomePage(),
         '/settings': (context) => const SettingsPage(),
-        '/shop': (context) => const TrinketShopPage(),
+        '/trinket_shop': (context) => const TrinketShopPage(),
+        '/treat_shop': (context) => const TreatShopPage(),
       },
     );
   }
