@@ -38,8 +38,8 @@ class HamburgerMenu extends StatelessWidget {
             onTap: () {
               Navigator.pop(context); // closes the drawer
               // if not already in settings page
-              if (ModalRoute.of(context)?.settings.name != '/shop') {
-                Navigator.pushReplacementNamed(context, '/shop');
+              if (ModalRoute.of(context)?.settings.name != '/trinket_shop') {
+                Navigator.pushReplacementNamed(context, '/trinket_shop');
               }
             },
           ),
@@ -48,8 +48,8 @@ class HamburgerMenu extends StatelessWidget {
             onTap: () {
               Navigator.pop(context); // closes the drawer
               // if not already in settings page
-              if (ModalRoute.of(context)?.settings.name != '/shop') {
-                Navigator.pushReplacementNamed(context, '/shop');
+              if (ModalRoute.of(context)?.settings.name != '/treat_shop') {
+                Navigator.pushReplacementNamed(context, '/treat_shop');
               }
             },
           ),
