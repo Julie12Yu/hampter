@@ -1,0 +1,8 @@
+type Treat {
+  treatID: ID
+  treatDescription: String
+}
+
+type Query {
+  treats: [Treat]
+}
