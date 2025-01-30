@@ -1,0 +1,4 @@
+type Query {
+  treats: [Treat] # Query to get all treats
+  treatById(id: ID!): Treat # Query to get a specific treat by ID
+}

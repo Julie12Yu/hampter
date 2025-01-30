@@ -1,0 +1,4 @@
+type Mutation {
+  addTreat(treatDescription: String!): Treat  # Query to add a treat given a treat description
+  deleteTreat(id: ID!): Boolean  # Query to delete a treat by it's ID
+}
