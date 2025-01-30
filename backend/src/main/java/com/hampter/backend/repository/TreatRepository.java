@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TreatRepository extends JpaRepository<Treat, Integer> {
 
+    Treat addTreat(String treatDescription);
+
 }
