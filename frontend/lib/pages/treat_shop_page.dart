@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'hamburger_menu.dart';
+import 'components/hamburger_menu.dart';
 
 class TreatShopPage extends StatefulWidget {
   const TreatShopPage({super.key});

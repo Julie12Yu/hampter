@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hampter/home_page.dart';
-import 'package:hampter/treat_shop_page.dart';
-import 'settings/settings_page.dart';
-import 'package:hampter/trinket_shop_page.dart';
+import 'package:hampter/pages/home_page.dart';
+import 'package:hampter/pages/treat_shop_page.dart';
+import 'pages/settings_page.dart';
+import 'package:hampter/pages/trinket_shop_page.dart';
 
 void main() {
   runApp(const MyApp());

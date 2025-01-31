@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:hampter/testing_display.dart';
-import 'package:hampter/hamburger_menu.dart';
-import 'package:hampter/view_hampter.dart';
+import 'package:hampter/pages/components/testing_display.dart';
+import 'package:hampter/pages/components/hamburger_menu.dart';
+import 'package:hampter/pages/components/view_hampter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
