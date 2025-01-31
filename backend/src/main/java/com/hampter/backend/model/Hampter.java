@@ -18,6 +18,7 @@ public class Hampter {
     private String hampterModel;
 
     @Column(name = "hampterTime")
+    @Convert(converter = DurationConverter.class) // Use the DurationConverter
     private Duration hampterTime;
 
     @Column(name = "hampterHab")

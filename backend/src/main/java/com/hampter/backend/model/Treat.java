@@ -3,6 +3,7 @@ package com.hampter.backend.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Setter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -10,12 +11,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Treat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "treatID")
-    private Integer Treat;
+    private Integer treatId;
 
-    @Column(name = "", columnDefinition = "string")
+    @Column(columnDefinition = "string")
     private String treatDescription;
+
+    public void setTreatDescription(String treatDescription) {
+        this.treatDescription = treatDescription;
+    }
 }
