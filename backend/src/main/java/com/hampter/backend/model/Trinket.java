@@ -10,6 +10,6 @@ public class Trinket {
     @Column(name = "trinketID")
     private Integer Trinket;
 
-    @Column(name = "", columnDefinition = "string")
+    @Column(name = "trinketDescription", columnDefinition = "TEXT")
     private String trinketDescription;
 }
