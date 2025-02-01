@@ -3,7 +3,6 @@ package com.hampter.backend.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
 
 @Entity
