@@ -12,11 +12,24 @@ class _TreatShopPageState extends State<TreatShopPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: HamburgerMenu(),
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text("Treat Shop"),
+      drawer: HamburgerMenu(),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text("Treat Shop"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              child: const Text('Tap Me!'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/settings');
+              },
+            ),
+          ],
         ),
-        body: Center(child: Text("this is a treat shop!")));
+      ),
+    );
   }
 }
