@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hampter/pages/home_page.dart';
 import 'package:hampter/pages/treat_shop_page.dart';
 import 'pages/settings_page.dart';
@@ -26,7 +27,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GraphQLProvider(
+        child: MaterialApp(
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: _appThemeMode,
@@ -37,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         '/trinket_shop': (context) => const TrinketShopPage(),
         '/treat_shop': (context) => const TreatShopPage(),
       },
-    );
+    ));
   }
 
   // call from 'context' with: MyApp.of(context).changeMode(ThemeMode.dark);
