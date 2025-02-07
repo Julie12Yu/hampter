@@ -39,6 +39,35 @@ class _TreatShopPageState extends State<TreatShopPage> {
     }
   }
 
+  Future<void> _addTreat(String treatDescription) async {
+    final GraphQLClient client = GraphQLProvider.of(context).value;
+
+    final MutationOptions options = MutationOptions(
+      document: gql(addTreatMutation),
+      variables: {"treatDescription": treatDescription},
+    );
+
+    final QueryResult result = await client.mutate(options);
+
+    if (result.hasException) {
+      print("Error: ${result.exception.toString()}");
+      return;
+    }
+
+    if (result.data != null) {
+      print("Added Treat: ${result.data!['addTreat']}");
+    }
+  }
+
+  static const String addTreatMutation = """
+  mutation AddTreat(\$treatDescription: String!) {
+    addTreat(treatDescription: \$treatDescription) {
+      id
+      description
+    }
+  }
+  """;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
