@@ -81,8 +81,8 @@ class _TreatShopPageState extends State<TreatShopPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              child: const Text('Get Treats'),
               onPressed: _fetchTreats,
+              child: const Text('Get Treats'),
             ),
           ],
         ),
