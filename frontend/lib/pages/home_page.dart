@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:hampter/pages/components/testing_display.dart';
+import 'package:hampter/pages/components/testing_controls.dart';
 import 'package:hampter/pages/components/hamburger_menu.dart';
 import 'package:hampter/pages/components/view_hampter.dart';
 
