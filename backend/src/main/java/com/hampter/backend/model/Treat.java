@@ -17,7 +17,7 @@ public class Treat {
     @Column(name = "treatID")
     private Integer treatId;
 
-    @Column(columnDefinition = "string")
+    @Column(name = "treat_description", length = 255)
     private String treatDescription;
 
     public void setTreatDescription(String treatDescription) {
