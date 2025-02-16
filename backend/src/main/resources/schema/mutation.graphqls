@@ -1,4 +1,6 @@
 type Mutation {
+  # TREAT RELATED
   addTreat(treatDescription: String!): Treat # Add a treat given a treat description
   deleteTreat(id: ID!): Boolean # Delete a treat by it's ID
+
 }
