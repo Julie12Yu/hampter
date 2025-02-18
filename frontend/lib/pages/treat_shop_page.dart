@@ -2,15 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'components/hamburger_menu.dart';
 
-class TreatShopPage extends StatefulWidget {
-  const TreatShopPage({super.key});
-
-  @override
-  State<TreatShopPage> createState() => _TreatShopPageState();
-}
-
-class _TreatShopPageState extends State<TreatShopPage> {
-  static const String getTreatsQuery = r'''
+class TreatQueries {
+  static const String getTreats = r'''
     query GetTreats {
       treats {
         treatID
@@ -19,54 +12,106 @@ class _TreatShopPageState extends State<TreatShopPage> {
     }
   ''';
 
-  void _fetchTreats() async {
-    final GraphQLClient client = GraphQLProvider.of(context).value;
-
-    final QueryResult result = await client.query(
-      QueryOptions(
-        document: gql(getTreatsQuery),
-      ),
-    );
-
-    if (result.hasException) {
-      print(result.exception.toString());
-      return;
+  static const String addTreat = """
+    mutation AddTreat(\$treatDescription: String!) {
+      addTreat(treatDescription: \$treatDescription) {
+        id
+        description
+      }
     }
+  """;
+}
 
-    if (result.data != null) {
-      // Handle your data here
-      print(result.data!['treats']);
+class Treat {
+  final String id;
+  final String description;
+
+  Treat({required this.id, required this.description});
+
+  factory Treat.fromJson(Map<String, dynamic> json) {
+    return Treat(
+      id: json['treatID'] ?? '',
+      description: json['treatDescription'] ?? '',
+    );
+  }
+}
+
+class TreatShopPage extends StatefulWidget {
+  const TreatShopPage({super.key});
+
+  @override
+  State<TreatShopPage> createState() => _TreatShopPageState();
+}
+
+class _TreatShopPageState extends State<TreatShopPage> {
+  List<Treat> treats = [];
+
+  Future<void> _fetchTreats() async {
+    try {
+      final client = GraphQLProvider.of(context).value;
+
+      int retryCount = 0;
+      const maxRetries = 3;
+
+      while (retryCount < maxRetries) {
+        try {
+          final result = await client.query(
+            QueryOptions(
+              document: gql(TreatQueries.getTreats),
+              fetchPolicy: FetchPolicy.networkOnly,
+            ),
+          );
+
+          if (result.hasException) {
+            if (retryCount < maxRetries - 1) {
+              retryCount++;
+              await Future.delayed(Duration(seconds: 1 * retryCount));
+              continue;
+            }
+            throw Exception(result.exception.toString());
+          }
+
+          if (result.data != null) {
+            final treatsList = (result.data!['treats'] as List)
+                .map((treat) => Treat.fromJson(treat))
+                .toList();
+            setState(() {
+              treats = treatsList;
+            });
+            break;
+          }
+        } catch (e) {
+          if (retryCount >= maxRetries - 1) throw e;
+          retryCount++;
+          await Future.delayed(Duration(seconds: 1 * retryCount));
+        }
+      }
+    } catch (e) {
+      print('Error after retries: ${e.toString()}');
     }
   }
 
   Future<void> _addTreat(String treatDescription) async {
-    final GraphQLClient client = GraphQLProvider.of(context).value;
+    try {
+      final client = GraphQLProvider.of(context).value;
+      final result = await client.mutate(
+        MutationOptions(
+          document: gql(TreatQueries.addTreat),
+          variables: {"treatDescription": treatDescription},
+        ),
+      );
 
-    final MutationOptions options = MutationOptions(
-      document: gql(addTreatMutation),
-      variables: {"treatDescription": treatDescription},
-    );
+      if (result.hasException) {
+        throw Exception('Error adding treat: ${result.exception.toString()}');
+      }
 
-    final QueryResult result = await client.mutate(options);
-
-    if (result.hasException) {
-      print("Error: ${result.exception.toString()}");
-      return;
-    }
-
-    if (result.data != null) {
-      print("Added Treat: ${result.data!['addTreat']}");
-    }
-  }
-
-  static const String addTreatMutation = """
-  mutation AddTreat(\$treatDescription: String!) {
-    addTreat(treatDescription: \$treatDescription) {
-      id
-      description
+      if (result.data != null) {
+        await _fetchTreats();
+      }
+    } catch (e) {
+      print('Error adding treat: ${e.toString()}');
     }
   }
-  """;
 
   @override
   Widget build(BuildContext context) {
